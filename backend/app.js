@@ -5,7 +5,7 @@ import express from "express";
 import cors from "cors";
 import cookieParser from "cookie-parser";
 
-import clientRoutes from "./src/routes/clientsRoutes.js";
+import clientsRoutes from "./src/routes/clientsRoutes.js";
 import reservationRoutes from "./src/routes/reservationsRoutes.js";
 
 //import swaggerUi from "swagger-ui-express";
@@ -41,7 +41,7 @@ const swaggerDocument = JSON.parse(
 
 app.use("/api/docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
-app.use("/api/clients", clientRoutes);
+app.use("/api/clients", clientsRoutes);
 app.use("/api/reservations", reservationRoutes);
 
 //Exporto esta constante para usar express en todos lados
