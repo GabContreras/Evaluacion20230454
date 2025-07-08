@@ -1,0 +1,370 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "home-iot-api",
+    "description": "The API for the EatBacon IOT project",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "https://virtserver.swaggerhub.com/ricaldone-29d/Evaluacion20/1.0.0",
+      "description": "SwaggerHub API Auto Mocking"
+    }
+  ],
+  "paths": {
+    "/clients": {
+      "get": {
+        "tags": [
+          "Clients"
+        ],
+        "summary": "GET Clients",
+        "description": "Acá se hace un select general a la colección \"clients\".",
+        "operationId": "get-clients",
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Error al obtener los clientes + (error)"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Clients"
+        ],
+        "summary": "POST Clients",
+        "description": "Acá se inserta un cliente con los datos solicitados.",
+        "operationId": "post-clients",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Clients"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Cliente creado exitosamente"
+          },
+          "500": {
+            "description": "Error al crear el cliente + (error)"
+          }
+        }
+      }
+    },
+    "/api/clients/{id}": {
+      "get": {
+        "tags": [
+          "Clients"
+        ],
+        "summary": "GET Clients",
+        "description": "Acá se hace un select a un cliente en específico utilizando un id.",
+        "operationId": "get-api-clients-id",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "Cliente no encontrado."
+          },
+          "500": {
+            "description": "Error al obtener el cliente + (error)"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Clients"
+        ],
+        "summary": "PUT Clients",
+        "description": "Acá se actualiza la información de un cliente.",
+        "operationId": "put-api-clients-id",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Clients"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Cliente actualizado exitosamente"
+          },
+          "500": {
+            "description": "Error al actualizar el cliente + (error)"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Clients"
+        ],
+        "summary": "DELETE Client",
+        "description": "Acá se elimina un cliente",
+        "operationId": "delete-api-clients-id",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Cliente eliminado exitosamente"
+          },
+          "500": {
+            "description": "Error al eliminar el cliente + (error)"
+          }
+        }
+      }
+    },
+    "/api/reservations": {
+      "get": {
+        "tags": [
+          "Reservations"
+        ],
+        "summary": "GET reservations",
+        "description": "Select general a reservations",
+        "operationId": "get-api-reservations",
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Error al obtener las reservas + (error)"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Reservations"
+        ],
+        "summary": "POST Reservations",
+        "description": "Crear una reserva",
+        "operationId": "post-api-reservations",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Reservations"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Reserva creada exitosamente"
+          },
+          "500": {
+            "description": "Error al crear las reserva + (error)"
+          }
+        }
+      }
+    },
+    "/api/reservations/{id}": {
+      "get": {
+        "tags": [
+          "Reservations"
+        ],
+        "summary": "GET reservations",
+        "description": "Select a una reserva en específico",
+        "operationId": "get-api-reservations-id",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "Reserva no encontrada"
+          },
+          "500": {
+            "description": "Error al obtener la reserva + (error)"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Reservations"
+        ],
+        "summary": "PUT reservations",
+        "description": "Acá se actualiza la información de una reserva",
+        "operationId": "put-api-reservations-id",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Reservations"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Reserva actualizada exitosamente"
+          },
+          "404": {
+            "description": "Reserva no encontrad"
+          },
+          "500": {
+            "description": "Error al actualizar la reserva + (error)"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Reservations"
+        ],
+        "summary": "DELETE reservations",
+        "description": "Acá se elimina una reserva",
+        "operationId": "delete-api-reservations-id",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Reserva eliminada exitosamente"
+          },
+          "404": {
+            "description": "Reserva no en"
+          },
+          "500": {
+            "description": "Error al eliminar la reserva + (error)"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Clients": {
+        "title": "Clients",
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "x-stoplight": {
+              "id": "kel0hjlkvjqpl"
+            }
+          },
+          "email": {
+            "type": "string",
+            "x-stoplight": {
+              "id": "s665ph6kk98ug"
+            }
+          },
+          "password": {
+            "type": "string",
+            "x-stoplight": {
+              "id": "d7e7whhc226na"
+            }
+          },
+          "phone": {
+            "type": "string",
+            "x-stoplight": {
+              "id": "3q35qk6dhwvap"
+            }
+          },
+          "age": {
+            "minimum": 18,
+            "type": "number",
+            "x-stoplight": {
+              "id": "cccei1pfx6gws"
+            }
+          }
+        }
+      },
+      "Reservations": {
+        "title": "Reservations",
+        "type": "object",
+        "properties": {
+          "clientId": {
+            "type": "string",
+            "format": "objectId",
+            "x-stoplight": {
+              "id": "bzmux2ja73noi"
+            }
+          },
+          "vehicle": {
+            "type": "string",
+            "x-stoplight": {
+              "id": "d6x426n7k8kig"
+            }
+          },
+          "service": {
+            "type": "string",
+            "x-stoplight": {
+              "id": "tngzaee46ctt4"
+            }
+          },
+          "status": {
+            "type": "string",
+            "x-stoplight": {
+              "id": "i33w8h3bjtt66"
+            },
+            "default": "pendiente",
+            "enum": [
+              "pendiente",
+              "completada",
+              "cancelada"
+            ]
+          }
+        }
+      }
+    }
+  }
+}
